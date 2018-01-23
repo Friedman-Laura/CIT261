@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <p>Click the button to get a <b>if-else</b> time-based greeting:</p>
+
+<button onclick="myIfElseFunction()">Try it</button>
+
+<p id="demo-ifelse"></p>
+
+<script>
+function myIfElseFunction() {
+    var hour = new Date().getHours(); 
+    var greeting;
+    if (hour < 18) {
+        greeting = "Good day";
+    } else {
+        greeting = "Good evening";
+    }
+    document.getElementById("demo-ifelse").innerHTML = greeting;
+}
+</script>
+    
+    <p>Click the button to get a <b>if-elseif-else</b> time-based greeting:</p>
+
+<button onclick="myIfElseIfElseFunction()">Try it</button>
+
+<p id="demo-ifelseifelse"></p>
+
+<script>
+function myIfElseIfElseFunction() {
+    var greeting;
+    var time = new Date().getHours();
+    if (time < 12) {
+        greeting = "Good morning";
+    } else if (time < 18) {
+        greeting = "Good afternoon";
+    } else {
+        greeting = "Good night";
+    }
+document.getElementById("demo-ifelseifelse").innerHTML = greeting;
+}
+</script>
+
+</body>
+</html>
