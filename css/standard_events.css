@@ -1,0 +1,51 @@
+.green {
+    background-color: green;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.draggable-circle {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    background-color: limegreen;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    z-index: 1000;
+}
+
+.fade-out {
+    -moz-animation-name: fadeOut;
+    animation-name: fadeOut;
+
+    -moz-animation-duration: 2s;
+    animation-duration: 2s;
+}
+
+@-moz-keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}

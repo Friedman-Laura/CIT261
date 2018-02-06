@@ -1,0 +1,103 @@
+@charset "utf-8";
+/* CSS Document */
+/* Main CSS */
+
+body {
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+	color: #484848;
+}
+
+h2,h3,h4,h5,h6 {
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+    color: #00A8DB;	
+}
+
+h1{
+	font-size: 2.5em;
+	line-height: 1.2em;
+}
+
+h2{
+	  font-size: 2.25em;
+	  line-height: 1.25em;
+}
+
+h3{
+	  font-size: 2.0em;
+	  line-height: 1.15em;
+}
+
+h4{
+	  font-size: 1.75em;
+	  line-height: 1.10em;
+}
+
+h5{
+	  font-size: 1.50em;
+	  line-height: 1.05em;
+}
+
+h6{
+	  font-size: 1.25em;
+	  line-height: 1em;
+}
+
+header {
+    text-align: center;
+    max-width:960px !important;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.main_content {
+    max-width:960px !important;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+footer {
+    text-align: center;
+    max-width:960px !important;
+    margin-right: auto;
+    margin-left: auto;
+	font-size: .8em;
+}
+
+/* Main flexbox */
+
+.main_content {
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col_left {
+    flex:1 45%;
+    padding: 5px 5px 5px 5px;
+}
+
+.col_center {
+    flex:1 25%;
+    padding: 5px 5px 5px 5px;
+}
+
+.col_right {
+    flex:1 25%;
+    padding: 5px 5px 5px 5px;
+}
+
+/* Responsive Body */
+
+@media all and (max-width: 960px) {
+
+.main_content {
+    flex-direction: column;
+}
+
+.col_left, .col_right {
+        
+/* Return them to document order */
+    order: 0;
+}
+  
+}

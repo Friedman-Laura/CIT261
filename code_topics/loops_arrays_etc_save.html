@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Loops, Conditional Statements, Functions, Arrays Example Page">
+    <meta name="author" content="Laura Friedman">
+            
+    <title>Loops, Conditional Statements, Functions, Arrays Example - Laura Friedman</title>
+    
+    <!-- Custom style for this site -->
+    <link href="/CIT261/css/style.css" rel="stylesheet">
+      
+    <!-- Normalize CSS -->
+    <link href="/CIT261/css/normalize.css" rel="stylesheet">
+      
+    <script type="text/javascript">
+
+			var Person = function(firstname){
+				this.firstname = firstname;
+			}
+			var people = [];
+
+			function newPerson(){
+				var person1 = new Person(document.person.name.value);
+				//Add person to the list of people
+				people.push(person1);
+				//Display individual
+				document.getElementById("Display Person").innerHTML = JSON.stringify(person1);
+				//Display people
+				document.getElementById("Display People").innerHTML = JSON.stringify(people);
+			}
+
+			//Converts JSON into JavaScript Object
+			function parseJSON(){
+				var string = document.getElementById("Display People").innerHTML;
+				document.getElementById("Display People").innerHTML = JSON.parse(string);
+			}
+
+			//Converts JavaScript Object into a String
+			function stringifyJSON(){
+				document.getElementById("Display People").innerHTML = JSON.stringify(people);
+			}
+
+		</script>
+	</head>
+    
+	<body>
+		<header>
+		<h3>Loops, Conditional Statements, Functions, Arrays Example</h3>
+		</header>
+        <hr>
+    <div class="main_content">
+        <div class="col_left">
+		<h4> Create a Person: </h4>
+		<p id="Display Person"></p>
+		<form name="person">
+			<label>First Name:</label>
+			<input type="text" id="name" name="name"/><br>
+			<button type="button" value="submit" onclick="newPerson()">Create Person</button>
+		</form>
+
+        </div>
+        <div class="col_center">
+		<h4> People Created </h4>
+		<p name="people" id="Display People"><p>
+		<button type="button" value="submit" onclick="parseJSON()">Parse</button>
+		<button type="button" value="submit" onclick="stringifyJSON()">Stringify</button>
+        </div>
+        </div>
+        <hr>
+    <footer>
+      &copy;2018 Laura Friedman | CIT 261: JavaScript Mobile Software Development | <a href="http://www.redonks.com">Redonks.com</a> | <a href="https://github.com/Friedman-Laura/CIT261" target="_blank">Github</a> | <a href="#">Team Project (Incomplete)</a>
+    </footer>
+	</body>
+</html>

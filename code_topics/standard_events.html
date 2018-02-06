@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Standard Events, Including Mobile, Animation, and Transitions">
+    <meta name="author" content="Laura Friedman">
+            
+    <title>Standard Events (Mobile/Animation/Transition) Example - Laura Friedman</title>
+    
+    <!-- Custom style for this site -->
+    <link href="/CIT261/css/style.css" rel="stylesheet">
+	
+	<!--- Custom style sheet for this page --> 
+	<link href="/CIT261/css/standard_events.css" rel="stylesheet">
+      
+    <!-- Normalize CSS -->
+    <link href="/CIT261/css/normalize.css" rel="stylesheet">
+</head>
+<body onload="pageLoadPopup()">
+    <header>
+		<h3>Standard JavaScript Events<br>Including Mobile, Animation, and Transition</h3>
+        <hr>
+    </header>
+    <div class="main_content">
+		
+        <div class="col_left">
+        <h4>Display the Date/Time in the Same HTML Element</h4>
+
+		<button onclick="this.innerHTML=Date()">The date/time is?</button>
+		</div>
+		<div class="col_center">
+        	<h4>Display the Date/Time in a Different HTML Element</h4>
+			<button onclick="document.getElementById('different').innerHTML=Date()">The date/time is?</button>
+			<p id="different"></p>
+		</div>
+		<div class="col_right">
+        	<h4>Display the Date/Time via a JavaScript Function Call</h4>
+			<button onclick="displayDate()">The time is?</button>
+			<script>
+				function displayDate() {
+					document.getElementById("date_function").innerHTML = Date();
+				}
+			</script>
+
+			<p id="date_function"></p>
+
+		</div>
+	</div>
+	<hr>
+    <div class="main_content">
+		
+        <div class="col_left">
+        <h4>Hide on Click</h4>
+
+        <div class="green center-text" id="fade-out-on-click" style="width: 100px; height: 100px;">
+            Click me to hide
+        </div>
+		</div>
+		<div class="col_center">
+        	<h4>Mobile-friendly Draggable Circle</h4>
+        	<p>Click the button below to create a circle that you can drag around the screen with your mouse or touch device! If you resize the page the circle will auto-center itself.</p>
+			<button onclick="createDraggableCircle()">Click me to create a circle.</button>
+		</div>
+	</div>
+	<hr>
+<script src="/CIT261/javascript/standard_events.js"></script>
+</body>
+</html>
