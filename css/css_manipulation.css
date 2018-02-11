@@ -1,0 +1,21 @@
+button:hover {
+	background-color: gray;
+	color: white;
+}
+
+#soccer_in_provo{
+	border-radius: 10px;
+	width: 50%;
+}
+
+button{
+	width:45%;
+	height: 100px;
+	font-size: 120%;
+	border-radius: 20px;
+	margin: 4px;
+}
+
+#home:hover{
+	box-shadow: 2px 2px 2px #888888;
+}

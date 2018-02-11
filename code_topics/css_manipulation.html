@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Manipulating CSS Class Properties Using JavaScript">
+    <meta name="author" content="Laura Friedman">
+            
+    <title>Manipulating CSS Class Properties Using JavaScript</title>
+    
+    <!-- Custom style for this site -->
+    <link href="/CIT261/css/style.css" rel="stylesheet">
+	
+	<!--- Custom style sheet for this page --> 
+	<link href="/CIT261/css/css_manipulation.css" rel="stylesheet">
+      
+    <!-- Normalize CSS -->
+    <link href="/CIT261/css/normalize.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+		<h3>Manipulating CSS Class Properties Using JavaScript</h3>
+        <hr>
+    </header>    
+    <div class="main_content">
+        <div class="col_left">
+		<img id="soccer_in_provo" src="/CIT261/images/2018-02-02-Michael.jpg" onmouseout="changeBorderBack()" width="50%" onmouseover="changeBorder()" alt="Michael in Provo" >
+        </div>
+		<div class="col_right" id="buttons">
+			<p><button id="thisButton" class="myButtons" type="button" onclick="doubleHeight()">Click here to double image size</button></p>
+			<p><button class="myButtons" type="button" onclick="returnToNormal()">Click here to go back to normal size</button></p>
+			<p><button class="myButtons" type="button" onclick="changeRadius()">Click here to change border radius</button></p>
+			<p><button class="myButtons" type="button" onclick="changeColor()">Click here to change button color</button></p>
+		</div>
+	</div>
+	<hr>
+   <footer>
+      &copy;2018 Laura Friedman | <a href="http://www.redonks.com/CIT261/index.html">CIT 261: JavaScript Mobile Software Development</a> | <a href="http://www.redonks.com">Redonks.com</a> | <a href="https://github.com/Friedman-Laura/CIT261" target="_blank">Github</a> | <a href="#">Team Project (Incomplete)</a>
+    </footer>    
+</body>
+<script src="/CIT261/javascript/css_manipulation.js"></script>
+</html>
