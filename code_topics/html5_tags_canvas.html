@@ -1,0 +1,138 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="HTML5 Tags - Video, Audio, and Canvas">
+        <meta name="author" content="Laura Friedman">
+            
+        <title>HTML5 Tags - Video, Audio, and Canvas</title>
+    
+        <!-- Custom style for this site -->
+        <link href="/CIT261/css/style.css" rel="stylesheet">
+	
+        <!-- Normalize CSS -->
+        <link href="/CIT261/css/normalize.css" rel="stylesheet">
+        
+        <!-- Include the JavaScript functions -->
+        <script>
+            //==============================================================================
+            //BEGINNING OF Variables
+            //==============================================================================
+            var canvas, ctx, flag = false,
+                prevX = 0,
+                currX = 0,
+                prevY = 0,
+                currY = 0,
+                dot_flag = false;
+
+            var x = "red",
+                y = 2;
+
+            //==============================================================================
+            //END OF Variables
+            //==============================================================================
+            
+            //==============================================================================
+            //BEGINNING OF Functions
+            //==============================================================================
+            function init() {
+                canvas = document.getElementById('canvasDraw');
+                ctx = canvas.getContext("2d");
+                w = canvas.width;
+                h = canvas.height;
+
+                canvas.addEventListener("mousemove", function (pen) {
+                    findxy('move', pen)
+                }, false);
+                canvas.addEventListener("mousedown", function (pen) {
+                    findxy('down', pen)
+                }, false);
+                canvas.addEventListener("mouseup", function (pen) {
+                    findxy('up', pen)
+                }, false);
+                canvas.addEventListener("mouseout", function (pen) {
+                    findxy('out', pen)
+                }, false);
+            }
+
+            function draw() {
+                ctx.beginPath();
+                ctx.moveTo(prevX, prevY);
+                ctx.lineTo(currX, currY);
+                ctx.strokeStyle = x;
+                ctx.lineWidth = y;
+                ctx.stroke();
+                ctx.closePath();
+            }
+
+            function erase() {
+                var message = confirm("Are you sure you want to clear the canvas?");
+                if (message) {
+                    ctx.clearRect(0, 0, w, h);
+                    document.getElementById("canvasImage").style.display = "none";
+                }
+            }
+
+            function findxy(res, e) {
+                if (res == 'down') {
+                    prevX = currX;
+                    prevY = currY;
+                    currX = e.clientX - canvas.offsetLeft;
+                    currY = e.clientY - canvas.offsetTop;
+
+                    flag = true;
+                    dot_flag = true;
+                    if (dot_flag) {
+                        ctx.beginPath();
+                        ctx.fillStyle = x;
+                        ctx.fillRect(currX, currY, 2, 2);
+                        ctx.closePath();
+                        dot_flag = false;
+                    }
+                }
+
+                if (res == 'up' || res == "out") {
+                    flag = false;
+                }
+                if (res == 'move') {
+                    if (flag) {
+                        prevX = currX;
+                        prevY = currY;
+                        currX = e.clientX - canvas.offsetLeft;
+                        currY = e.clientY - canvas.offsetTop;
+                        draw();
+                    }
+                }
+            }            
+            //==============================================================================
+            //END OF Functions
+            //==============================================================================
+        </script>
+
+    </head>
+    <body onload="init()">
+        <header>
+            <h3>HTML5 Tags - Video, Audio, and Canvas - Freehand Drawing</h3>
+            <hr>
+        </header>
+        <nav>
+        </nav>
+        <main>
+            <div class="main_content">
+                <div class="col_left">
+                    <section id="html5_canvas_draw">
+
+                        <h3>Draw on the canvas with your mouse</h3>
+                        <canvas id="canvasDraw" width="600" height="500" style="border:1px solid #333333"></canvas>
+                        <img id="canvasImage" style="display:none;"><br><br>
+                        <input type="button" value="Clear Canvas" id="clr" size="23" onclick="erase()">
+                        <p>You can close this window when you are done. <a href="/CIT261/code_topics/html5_tags.html">Return</a></p>
+                    </section>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <hr>&copy;2018 Laura Friedman | <a href="http://www.redonks.com/CIT261/index.html">CIT 261: JavaScript Mobile Software Development</a> | <a href="http://www.redonks.com">Redonks.com</a> | <a href="https://github.com/Friedman-Laura/CIT261" target="_blank">Github</a> | <a href="#">Team Project (Incomplete)</a>
+        </footer>
+    </body>
+</html>

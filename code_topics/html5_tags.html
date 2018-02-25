@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="HTML5 Tags - Video, Audio, and Canvas">
+        <meta name="author" content="Laura Friedman">
+            
+        <title>HTML5 Tags - Video, Audio, and Canvas</title>
+    
+        <!-- Custom style for this site -->
+        <link href="/CIT261/css/style.css" rel="stylesheet">
+	
+        <!-- Normalize CSS -->
+        <link href="/CIT261/css/normalize.css" rel="stylesheet">
+        
+        <!-- Include the JavaScript functions -->
+        <script>
+            //==============================================================================
+            //BEGINNING OF Functions
+            //==============================================================================
+            function canvasInitFunction() {
+
+                var canvasLine = document.getElementById("canvasLine");
+                var ctx = canvasLine.getContext("2d");
+                ctx.moveTo(10, 10);
+                ctx.lineTo(390, 190);
+                ctx.stroke();
+
+                var canvasCircle = document.getElementById("canvasCircle");
+                var ctx = canvasCircle.getContext("2d");
+                ctx.beginPath();
+                ctx.arc(200, 100, 90, 0, 2 * Math.PI);
+                ctx.stroke();
+
+                var canvasText1 = document.getElementById("canvasText1");
+                var ctx = canvasText1.getContext("2d");
+                ctx.font = "28px Arial";
+                ctx.fillText("Philippians  4:13", 10, 100);
+
+                var canvasText2 = document.getElementById("canvasText2");
+                var ctx = canvasText2.getContext("2d");
+                ctx.font = "28px Arial";
+                ctx.strokeText("2 Timothy 1:7", 10, 150);
+
+            }            
+            //==============================================================================
+            //END OF Functions
+            //==============================================================================
+        </script>
+
+    </head>
+    <body onload="canvasInitFunction()">
+        <header>
+            <h3>HTML5 Tags - Video, Audio, and Canvas</h3>
+            <hr>
+        </header>
+        <nav>
+        </nav>
+        <main>
+            <div class="main_content">
+                <div class="col_left">
+                    <h4>HTML5 Audio and Video Tags</h4>
+                    <p>The HTML5 audio and video tags allow audio and video content to be played directly by the browser without the use of 3rd party plugins. The canvas tag creates an html block which can be drawn on using scripting.</p>
+                </div>
+            </div>
+            <div class="main_content">
+                <div class="col_left">
+                    <h5>Video Example</h5>
+                    <p>A Plea to My Sisters, President Russell M. Nelson<br>October 2015 General Conference</p>
+                    <video src="https://d1e635tdewwzdn.cloudfront.net/assets/general-conference/october-2015-general-conference/2015-10-4050-president-russell-m-nelson-720p-eng.mp4" width="520" height="390" preload="auto" controls loop>
+                        <!-- Message to display in case the video element isn't supported. -->
+                        <p> Your browser does not support the video element. </p>
+                    </video>
+                </div>
+                <div class="col_center">
+                    <h5>Audio Example</h5>
+                    <p>A Plea to My Sisters, President Russell M. Nelson<br>October 2015 General Conference</p>                    
+                    <audio src="https://d1e635tdewwzdn.cloudfront.net/assets/general-conference/october-2015-general-conference/2015-10-4050-president-russell-m-nelson-64k-eng.mp3" preload="auto" controls loop>
+                        <!--Message to display in case the audio element isn't supported. --><p> Your browser does not support the audio element. </p>
+                    </audio>
+                </div>
+            </div>
+            <div class="main_content">
+                <div class="col_left">
+                    <hr>
+                    <h4>HTML5 Canvas Tag</h4>
+                    <p>The canvas element is used to draw graphics, using JavaScript. It is only a container for graphics. You must use JavaScript to actually draw the graphics. Canvas has several methods for drawing paths, boxes, circles, text, and adding images. A canvas is a rectangular area on an HTML page. By default, a canvas has no border and no content. You can use it to draw text (with or without animation), graphics (with or without animation), lines, circles and so on. The canvas can respond to JavaScript events. It can also be used in applications. (http://www.w3schools.com/html/html5_canvas.asp)</p>
+                </div>
+            </div>
+            <div class="main_content">
+                <div class="col_left">
+                    <h5>Example Line</h5>
+                    <canvas id="canvasLine" width="400" height="200" style="border:1px solid #333333" ;></canvas>
+                </div>
+                <div class="col_center">
+                    <h5>Example Circle</h5>
+					<canvas id="canvasCircle" width="400" height="200" style="border:1px solid #333333" ;></canvas>
+                </div>
+                <div class="col_left">
+					<h5>Example Text 1</h5>
+					<canvas id="canvasText1" width="400" height="200" style="border:1px solid #333333" ;></canvas>
+                </div>
+                <div class="col_center">
+					<h5>Example Text 2</h5>
+                    <canvas id="canvasText2" width="400" height="200" style="border:1px solid #333333" ;></canvas>
+                </div>
+                <div class="col_left">
+				    <h5>Example Freehand Draw on Canvas with a Mouse</h5>
+                    <a href="html5_tags_canvas.html"><b>CLICK HERE TO OPEN A CANVAS YOU CAN DRAW ON</b></a>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <hr>&copy;2018 Laura Friedman | <a href="http://www.redonks.com/CIT261/index.html">CIT 261: JavaScript Mobile Software Development</a> | <a href="http://www.redonks.com">Redonks.com</a> | <a href="https://github.com/Friedman-Laura/CIT261" target="_blank">Github</a> | <a href="#">Team Project (Incomplete)</a>
+        </footer>
+    </body>
+</html>
