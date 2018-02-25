@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Local Storage API - Storing and Retrieving Simple Data, Arrays, Associative Arrays, and Objects">
+        <meta name="author" content="Laura Friedman">
+            
+        <title>Local Storage API - Storing Retrieving Simple Data, Arrays, Associative Arrays, and Objects</title>
+    
+        <!-- Custom style for this site -->
+        <link href="/CIT261/css/style.css" rel="stylesheet">
+	
+        <!-- Normalize CSS -->
+        <link href="/CIT261/css/normalize.css" rel="stylesheet">
+        
+        <!-- Include the JavaScript functions -->
+        <script>
+            //==============================================================================
+            // BEGINNING OF Variables
+            //==============================================================================
+            var students = null;
+
+            // Keeps consistency for the naming of local storage identifier for students JSON text
+            var sName = "students";
+
+            //==============================================================================
+            // END OF Variables
+            //==============================================================================
+
+            //==============================================================================
+            // BEGINNING OF Fuctions
+            //==============================================================================
+
+            // Use XMLHttpRequest object to call my webserver and retrieve CLASSLIST.html JSON file.
+            function getJSONFile() {
+                var xhttp = new XMLHttpRequest();
+                
+                xhttp.open("GET", "/CIT261/json/classlist.html", true);
+                
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        students = null;
+                        
+                        getStudentsFromLocalStorage();
+                        
+                        if(students == null){
+                            //Convert the JSON text back to an object
+                            students = JSON.parse(this.responseText);
+                            saveStudentsToLocalStorage();
+                            showStudents("Students from Server");
+                        }
+                        else
+                        {
+                            alert("You already have students saved locally. \nWe will not overwrite them.\nInstead, we will just show students pulled from the server.");
+                            
+                            //Convert the JSON text back to an object
+                            students = JSON.parse(this.responseText);
+                            
+                            showStudents("Students from Server");
+                        }
+                    }
+                }
+                xhttp.send();   
+            }
+
+            // Save students object as JSON text to the local storage.
+            function saveStudentsToLocalStorage(){
+                localStorage.setItem(sName, JSON.stringify(students));
+            }
+
+            // Retrieves my students object as JSON text to the local storage.
+            function getStudentsFromLocalStorage(){
+                students = JSON.parse(localStorage.getItem(sName));
+            }
+
+            // Clear the local storage students record.
+            function clearLocalStudents(){
+                localStorage.removeItem(sName);
+                students = null;
+                showStudents("Deleted Class List from Local Storage");
+            }
+
+            // Clear the screen display area of all record.
+            function clearDisplay(){
+                document.getElementById("div_students").innerHTML = "<h4>Student Display Area Cleared</h4>";
+            }
+
+            // handle the request from the user to get the students from local storage and display them 
+            function getLocalStudents(){
+                getStudentsFromLocalStorage();
+                if(students == null){
+                    alert("You do not have any students saved localy.\nPlease pull students from the server.");
+                }
+                showStudents("Students from Local Storage");
+            }
+
+            // Display all the students in the JSON object array.
+            function showStudents(display_banner){
+                var result = "<h4>" + display_banner + "</h4>"; 
+                try{
+                    for(var i = 0; i < students.records.length; i++){
+          
+                        result += "<p><b>Name: </b>" + students.records[i].firstName + " " + students.records[i].lastName + ", <b>Phone: </b>" + students.records[i].cell + "</p>";
+                    }
+                }catch(e){}
+                finally{
+                        document.getElementById("div_students").innerHTML = result;
+                }
+            }
+
+            // Add a new student to the JSON object array.
+            function addToJSONFile(){
+                var l = new function(){
+                    this.firstName = document.getElementById('student_first_name').value;
+                    this.lastName = document.getElementById('student_last_name').value;
+                    this.cell = document.getElementById('student_cell').value;
+                }
+    
+                students.records.push(l);
+                saveStudentsToLocalStorage();
+                showStudents("Students from Local Storage");
+            }
+            //==============================================================================
+            // END OF Functions
+            //==============================================================================
+            
+        </script>
+
+    </head>
+    <body>
+        <header>
+            <h3>Local Storage API - Storing and Retrieving Simple Data, Arrays, Associative Arrays, and Objects</h3>
+            <hr>
+        </header>
+        <nav>
+        </nav>
+        <main>
+            <div class="main_content">
+                <div class="col_left">
+                <fieldset>
+                    <p><input type="button" onclick="getJSONFile()" value="Retrieve Class List From Server" >
+                    </p>
+                    <p><input type="button" onclick="getLocalStudents()" value="Retrieve Class List From Local Storage" >
+                    </p>
+                    <p><input type="button" onclick="clearLocalStudents()" value="Clear Class List from Local Storage" >
+                    </p>
+                    <p><input type="button" onclick="clearDisplay()" value="Clear Display" >
+                    </p>                    
+                    <div id="div_students"></div>
+                </fieldset>
+                </div>
+                <div class="col_right">
+                <fieldset>
+                    <div><p>First Name: <input id="student_first_name" type="text" /></p><p>Last Name: <input id="student_last_name"  type="text" /></p><p>Phone: <input id="student_cell" type="text" /></p></div>
+                    <input type="button" onclick="addToJSONFile()" value="Add Student" > 
+                </fieldset>
+                </div>
+            </div>
+        </main>
+        <footer>
+            &copy;2018 Laura Friedman | <a href="http://www.redonks.com/CIT261/index.html">CIT 261: JavaScript Mobile Software Development</a> | <a href="http://www.redonks.com">Redonks.com</a> | <a href="https://github.com/Friedman-Laura/CIT261" target="_blank">Github</a> | <a href="#">Team Project (Incomplete)</a>
+        </footer>
+    </body>
+</html>

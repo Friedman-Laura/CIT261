@@ -1,0 +1,166 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jan 11, 2018, 1:21:53 PM
+    Author     : neldo
+*/
+* {margin: 0; padding: 0;}
+
+body{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    background: #FFF url(../images/body-bg7.png);
+}
+
+body.dark-skin {
+    background-color: #000;
+    color: #bfbfbf;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #bfbfbf;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 200px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+
+.highlight{
+    
+border: 1px solid red;
+}
+
+fieldset{
+    background-color: #3c3c3c;
+    padding:10px;
+}
+
+.float50{
+    max-width: 50%;
+    float:left;
+}
+h3{
+    font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+}
+
+.content ul{
+    list-style-type: none;
+  width: 500px;
+}
+
+
+
+.content li a{
+    text-decoration: none;
+}
+
+.content li a:visited{
+color: black;    
+}
+
+
+.content li a p {
+  font: 200 12px/1.5 Georgia, Times New Roman, serif;
+}
+
+.content li {
+  padding: 10px;
+  overflow: auto;
+}
+
+.content li:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+.clear{
+    clear:both;
+}
+
+main div{
+    margin: 0 auto;
+    width:960px;
+}
+header{
+    position: relative;
+    width: 100%;
+    top: 0;
+    height: auto;
+    background-color: cornflowerblue;
+    margin: 0px;
+}
+nav{
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+    
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav ul li{
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+nav ul li a:hover {
+    background-color: #111;
+} 
+.active {
+    background-color: cornflowerblue;
+}
+
+input[type=button]{
+    padding:10px;
+    margin:10px;
+}
+
+select{
+    padding:10px;
+    margin:10px;
+}
+button{
+    padding:10px;
+    margin:10px;
+}
+fieldset{
+    padding:10px;
+    margin:10px;
+}
+footer{
+    position: relative;
+    width: 100%;
+    background-color: cornflowerblue;
+    padding: 25px 0 25px 0;
+    margin: 0 auto;
+}
+
+.white{
+    background-color: white;
+    width: 320px;
+}

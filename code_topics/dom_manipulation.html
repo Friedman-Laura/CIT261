@@ -1,0 +1,161 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="DOM Manipulation Using createElement, appendChild, insertBefore, removeChild, etc.">
+        <meta name="author" content="Laura Friedman">
+            
+        <title>DOM Manipulation Using createElement, appendChild, insertBefore, removeChild, etc.</title>
+    
+        <!-- Custom style for this site -->
+        <link href="/CIT261/css/style.css" rel="stylesheet">
+	
+        <!-- Normalize CSS -->
+        <link href="/CIT261/css/normalize.css" rel="stylesheet">
+        
+        <!-- Include the JavaScript functions -->
+        <script>
+            //==============================================================================
+            //BEGINNING OF Variables
+            //==============================================================================
+
+            var students = null;
+
+            //==============================================================================
+            //END OF Variables
+            //==============================================================================
+            
+            //==============================================================================
+            //BEGINNING OF Functions
+            //==============================================================================
+
+            // Use the XMLHttpRequest object to call my webserver and retrieve CLASSLIST.html file.
+            function getJSONFile() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.open("GET", "/CIT261/json/classlist.html", true);
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        students = null;
+            
+                        //Convert the JSON text back to an object
+                        students = JSON.parse(this.responseText);
+            
+                        showStudents();
+                    }
+                }
+                xhttp.send();   
+            }
+
+            // Use splice to cut out a record in an array.
+            function deleteStudent(i){
+                students.records.splice(i,1);
+                showStudents();
+            }
+
+            // Use the XMLHttpRequest object to call webserver and retrieve the CLASSLIST.html JSON file.
+            function showStudents(){
+                document.getElementById("div_students").innerHTML = "";
+                var result = ""; 
+                try{
+                    for(var i = 0; i < students.records.length; i++){
+                        var divStudent = document.createElement("div");
+                        var divInfo = document.createElement("div");
+                        divInfo.classList.add('width75');
+                        var textnode = document.createTextNode("Name: " + students.records[i].firstName + " " + students.records[i].lastName + ", Phone: " + students.records[i].cell);
+     
+                        divInfo.appendChild(textnode);
+            
+//                       var divRemove = document.createElement("div");
+//                        divRemove.classList.add('width25');
+//                        divRemove.innerHTML = '<input type="button" value="Remove Student" onclick="deleteStudent(\''+i+'\')">';
+                        
+                          divStudent.appendChild(divInfo);
+//                        divStudent.appendChild(divRemove);
+                        document.getElementById("div_students").appendChild(divStudent);
+                    }
+                }catch(e){}
+                finally{
+                }
+            }
+
+            // Insert new student into the DOM model array before specified other students.
+            function insertStudentBefore(){
+                var divStudents = document.getElementById("div_students");
+                var newStudentRecord = document.createElement("div");
+                
+                var newStudentText = document.createTextNode("Name: " + document.getElementById('student_first_name').value + " " + document.getElementById('student_last_name').value + ", Phone: " + document.getElementById('student_cell').value);
+                
+                newStudentRecord.appendChild(newStudentText);
+                divStudents.insertBefore(newStudentRecord,divStudents.childNodes[0]);
+            }
+
+            // Insert new student into the DOM model array at end of specified other students.
+            function appendStudentAfter(){
+                var divStudents = document.getElementById("div_students");
+                var newStudentRecord = document.createElement("div");
+                
+                var newStudentText = document.createTextNode("Name: " + document.getElementById('student_first_name').value + " " + document.getElementById('student_last_name').value + ", Phone: " + document.getElementById('student_cell').value);
+                
+                newStudentRecord.appendChild(newStudentText);
+                
+                divStudents.appendChild(newStudentRecord);
+            }
+            
+            // Use the insertBefore function to insert a new element into the DOM model before the specified othere element.
+            function insertBefore2(){
+                var divStudents = document.getElementById("div_students");
+                var newItem = document.createElement("h2");
+                var h1text = document.createTextNode("MY CONTACTS");
+                newItem.appendChild(h1text);
+                divStudents.insertBefore(newItem,divStudents.childNodes[0]);
+            }
+
+            // Use to remove the first child element from another DOM element
+            function removeFirstStudent(){
+                var divStudents = document.getElementById("div_students");
+                divStudents.removeChild(divStudents.childNodes[0]);
+            }
+
+            // Use to remove the last child element from another DOM element
+            function removeLastStudent(){
+                var divStudents = document.getElementById("div_students");
+                divStudents.removeChild(divStudents.childNodes[divStudents.childNodes.length-1]);
+            }
+            //==============================================================================
+            //END OF Functions
+            //==============================================================================
+        </script>
+
+    </head>
+    <body>
+        <header>
+            <h3>DOM Manipulation Using createElement, appendChild, insertBefore, removeChild, etc.</h3>
+            <hr>
+        </header>
+        <nav>
+        </nav>
+        <main>
+            <div class="main_content">
+                <div class="col_left">
+                    <fieldset>
+                        <p><input type="button" onclick="getJSONFile()" value="Get Students From Server" ></p>
+                        <p><input type="button" onclick="removeFirstStudent()" value="Remove First Student" ></p>                       
+                        <p><input type="button" onclick="removeLastStudent()" value="Remove Last Student" ></p>
+                        <h4>Student Class List</h4>
+                        <div id="div_students"></div>                        
+                    </fieldset>
+                </div>
+                <div class="col_right">
+                    <fieldset>
+                        <div><p>First Name: <input id="student_first_name" type="text" /></p><p>Last Name: <input id="student_last_name"  type="text" /></p><p>Phone: <input id="student_cell" type="text" /></p></div>
+                        <input type="button" onclick="insertStudentBefore()" value="Insert At Beginning" > 
+                        <input type="button" onclick="appendStudentAfter()" value="Insert At End" > 
+                    </fieldset>
+                </div>
+            </div>
+        </main>
+        <footer>
+            &copy;2018 Laura Friedman | <a href="http://www.redonks.com/CIT261/index.html">CIT 261: JavaScript Mobile Software Development</a> | <a href="http://www.redonks.com">Redonks.com</a> | <a href="https://github.com/Friedman-Laura/CIT261" target="_blank">Github</a> | <a href="#">Team Project (Incomplete)</a>
+        </footer>
+    </body>
+</html>

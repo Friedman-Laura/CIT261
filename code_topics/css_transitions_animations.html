@@ -1,0 +1,147 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Creating CSS3 Transitions and Animations in CSS and triggering them with JavaScript">
+        <meta name="author" content="Laura Friedman">
+            
+        <title>Creating CSS3 Transitions and Animations in CSS and triggering them with JavaScript</title>
+    
+        <!-- Custom style for this site -->
+        <link href="/CIT261/css/style.css" rel="stylesheet">
+
+        <!-- Normalize CSS -->
+        <link href="/CIT261/css/normalize.css" rel="stylesheet">
+        
+        <!-- Custom style for this code topic -->
+        <link href="/CIT261/css/css_transitions_animations.css" rel="stylesheet">
+        
+        <!-- Include the JavaScript functions -->
+        <script>
+            //==============================================================================
+            //BEGINNING OF Variables
+            //==============================================================================
+            var bCard1Flipped = true;
+            var bCard2Flipped = false;
+
+            //==============================================================================
+            //END OF Variables
+            //==============================================================================
+
+            //==============================================================================
+            //BEGINNING OF Functions
+            //==============================================================================
+            
+            // Use a boolean value to know if the card has been flipped. If so, the click will reverse the flip.
+            function flip(){
+                //alert(2);
+                if(bCard1Flipped){
+                    bCard1Flipped=false;
+                    document.getElementById("div_card_front").style.transform="rotateY(-180deg)";
+                    document.getElementById("div_card_back").style.transform="rotateY(0)";
+                }
+                else
+                {
+                    bCard1Flipped=true;
+                    document.getElementById("div_card_front").style.transform="rotateY(0)";
+                    document.getElementById("div_card_back").style.transform="rotateY(-180deg)"; 
+        
+                }
+            }
+
+            // Set up the base settings and use JavaScript to manipulate CSS properties
+            // of the 3 DIV's that are the different cards. 
+            function cardSetup(){ 
+
+                //Transitions for the front and back of the card will last .3 seconds
+                document.getElementById("div_card_front").style.transition="transform 0.3s";
+                document.getElementById("div_card_back").style.transition="transform 0.3s"; 
+
+                document.getElementById("div_card").style.position="relative";
+                document.getElementById("div_card").style.width="200px";
+                document.getElementById("div_card").style.height="280px";
+                document.getElementById("div_card").style.textAlign="center";
+                document.getElementById("div_card").style.float="left";
+
+                document.getElementById("div_card_front").style.backfaceVisibility="hidden";
+                document.getElementById("div_card_front").style.position="absolute";
+                document.getElementById("div_card_front").style.left="0";
+                document.getElementById("div_card_front").style.top="0";
+                document.getElementById("div_card_front").style.height="100%"; 
+                document.getElementById("div_card_front").style.width="100%";
+                document.getElementById("div_card_front").style.backgroundImage='url("/CIT261/images/jack-of-hearts.png")';
+                document.getElementById("div_card_front").style.backgroundRepeat='no-repeat';
+                document.getElementById("div_card_front").style.backgroundSize='100% 100%';
+
+                document.getElementById("div_card_back").style.backfaceVisibility="hidden";
+                document.getElementById("div_card_back").style.position="absolute"; 
+                document.getElementById("div_card_back").style.top="0";
+                document.getElementById("div_card_back").style.left="0";
+                document.getElementById("div_card_back").style.width="100%";
+                document.getElementById("div_card_back").style.height="100%";  
+                document.getElementById("div_card_back").style.transform="rotateY(-180deg)"; 
+                document.getElementById("div_card_back").style.backgroundImage='url("/CIT261/images/card-back.jpg")';
+                document.getElementById("div_card_back").style.backgroundRepeat='no-repeat';
+                document.getElementById("div_card_back").style.backgroundSize='100% 100%';
+            }
+
+            // Enable the animatioName for the item to kick off the animation keyframe. Then
+            // use JavaScript to manipulate CSS properties of 3 DIV's for the different cards
+            function cardAnimate(){
+                if(bCard2Flipped){
+                    bCard2Flipped=false;
+                    document.getElementById("div_animate_3").style.transform="rotateY(-180deg)";
+                    document.getElementById("div_animate_2").style.transform="rotateY(-180deg)";
+                    document.getElementById("div_animate_1").style.transform="rotateY(0)";
+                    document.getElementById("div_animate_2").style.animationName="";
+                }
+                else
+                {
+                    bCard2Flipped=true;
+                    document.getElementById("div_animate_3").style.transform="rotateY(0)";
+                    document.getElementById("div_animate_2").style.transform="rotateY(0)";
+                    document.getElementById("div_animate_1").style.transform="rotateY(-180deg)"; 
+                    document.getElementById("div_animate_2").style.animationName="cloud";
+                    document.getElementById("div_animate_2").style.animationDuration="2s";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h3>Creating CSS3 Transitions and Animations in CSS and triggering them with JavaScript</h3>
+            <hr>
+        </header>
+        <nav>
+        </nav>
+        <main>
+            <div class="main_content">
+                <div class="col_left">
+                    <div class="clear"></div>                    
+                    <h5>Click on the card to flip it over AND see a transition<br>&nbsp;</h5>
+                    <div class="clear"></div>                    
+                    <div id="div_card_2" class="f card" onclick="cardAnimate()">
+                        <div id="div_animate_1" class="card card-back"></div>
+                        <div id="div_animate_2" class="card card-front second-card"></div>
+                        <div id="div_animate_3" class="card card-front first-card"></div>
+                    </div>                    
+                </div>
+                <div class="col_center">
+                    <h5>Click on the card to flip it over (animation).<br>&nbsp;</h5>
+                    <div class="clear"></div>                    
+                    <div id="div_card" class="card effect__hover" onclick="flip()">
+                        <div id="div_card_front" class="card__front"></div>
+                        <div id="div_card_back" class="card__back"></div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </main>
+        <footer>
+            &copy;2018 Laura Friedman | <a href="http://www.redonks.com/CIT261/index.html">CIT 261: JavaScript Mobile Software Development</a> | <a href="http://www.redonks.com">Redonks.com</a> | <a href="https://github.com/Friedman-Laura/CIT261" target="_blank">Github</a> | <a href="#">Team Project (Incomplete)</a>
+        </footer>
+        <script>
+            cardSetup();
+        </script>
+    </body>
+</html>

@@ -17,11 +17,12 @@ function getJSONFile() {
 //  Display all the student records in the JSON object array.
 function showStudents(){
     var result = ""; 
-        for(var i = 0; i < students.records.length; i++){
+    
+    for(var i = 0; i < students.records.length; i++){
           
-            result += "<p><b>Name: </b>" + students.records[i].firstName + " " + students.records[i].lastName + ", <b>Phone: </b>" + students.records[i].cell + "</p>";
-        }
-        document.getElementById("div_students").innerHTML = result;
+        result += "<p><b>Name: </b>" + students.records[i].firstName + " " + students.records[i].lastName + ", <b>Phone: </b>" + students.records[i].cell + "</p>";
+    }
+    document.getElementById("div_students").innerHTML = result;
 }
 
 //  Add a new contact to the JSON object array.

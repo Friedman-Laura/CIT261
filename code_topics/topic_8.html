@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Donald Nelson - CIT261 - Topic 8</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/CIT261/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="/CIT261/css/animation.css" rel="stylesheet" type="text/css"/>
+        <script src="/CIT261/javascript/topic.js" type="text/javascript"></script>
+        <script>
+//==============================================================================
+//Properties
+//==============================================================================            
+var bCard1Flipped = true;
+var bCard2Flipped = false;
+
+//==============================================================================
+//  Description:
+//      This function uses a boolean value to know if the card has been flipped 
+//      over. if it has, then the subsequent click will reverse the flip.
+//  
+//  Parameters:
+//            
+//  Example:
+//      flip();
+//      
+//  Coder:
+//      Donald Nelson
+//============================================================================== 
+function flip(){
+    //alert(2);
+    if(bCard1Flipped){
+        bCard1Flipped=false;
+        document.getElementById("div_card_front").style.transform="rotateY(-180deg)";
+        document.getElementById("div_card_back").style.transform="rotateY(0)";
+    }
+    else
+    {
+        bCard1Flipped=true;
+        document.getElementById("div_card_front").style.transform="rotateY(0)";
+        document.getElementById("div_card_back").style.transform="rotateY(-180deg)"; 
+        
+    }
+}
+
+
+//==============================================================================
+//  Description:
+//      This function uses javascript to manipulate the CSS properties of the 3
+//      DIV's that are the card. it sets up the base settings.
+//  
+//  Parameters:
+//            
+//  Example:
+//      getJSON();
+//      
+//  Coder:
+//      Donald Nelson
+//============================================================================== 
+function cardSetup(){ 
+    
+    //My Transitions for the front and the back of the card to last
+    //only .3 seconds
+    document.getElementById("div_card_front").style.transition="transform 0.3s";
+    document.getElementById("div_card_back").style.transition="transform 0.3s"; 
+    
+     
+    document.getElementById("div_card").style.position="relative";
+    document.getElementById("div_card").style.width="200px";
+    document.getElementById("div_card").style.height="280px";
+    document.getElementById("div_card").style.textAlign="center";
+    document.getElementById("div_card").style.float="left";
+    
+    document.getElementById("div_card_front").style.backfaceVisibility="hidden";
+    document.getElementById("div_card_front").style.position="absolute";
+    document.getElementById("div_card_front").style.left="0";
+    document.getElementById("div_card_front").style.top="0";
+    document.getElementById("div_card_front").style.height="100%"; 
+    document.getElementById("div_card_front").style.width="100%";
+    document.getElementById("div_card_front").style.backgroundImage='url("http://www.madore.org/~david/images/cards/english/jack-hearts.png")';
+    document.getElementById("div_card_front").style.backgroundRepeat='no-repeat';
+    document.getElementById("div_card_front").style.backgroundSize='100% 100%';
+    
+    document.getElementById("div_card_back").style.backfaceVisibility="hidden";
+    document.getElementById("div_card_back").style.position="absolute"; 
+    document.getElementById("div_card_back").style.top="0";
+    document.getElementById("div_card_back").style.left="0";
+    document.getElementById("div_card_back").style.width="100%";
+    document.getElementById("div_card_back").style.height="100%";  
+    document.getElementById("div_card_back").style.transform="rotateY(-180deg)"; 
+    document.getElementById("div_card_back").style.backgroundImage='url("http://www.buffaloguild.org/wp-content/uploads/2012/09/cardFrontW.jpg")';
+    document.getElementById("div_card_back").style.backgroundRepeat='no-repeat';
+    document.getElementById("div_card_back").style.backgroundSize='100% 100%';
+}
+
+
+//==============================================================================
+//  Description:
+//      This function uses javascript to manipulate the CSS properties of the 3
+//      DIV's that are the card. This enables the animationName for the item 
+//      which kicks off the animation keyframe.
+//  
+//  Parameters:
+//            
+//  Example:
+//      cardAnimate();
+//      
+//  Coder:
+//      Donald Nelson
+//============================================================================== 
+function cardAnimate(){
+    if(bCard2Flipped){
+        bCard2Flipped=false;
+        document.getElementById("div_animate_3").style.transform="rotateY(-180deg)";
+        document.getElementById("div_animate_2").style.transform="rotateY(-180deg)";
+        document.getElementById("div_animate_1").style.transform="rotateY(0)";
+        document.getElementById("div_animate_2").style.animationName="";
+    }
+    else
+    {
+        bCard2Flipped=true;
+        document.getElementById("div_animate_3").style.transform="rotateY(0)";
+        document.getElementById("div_animate_2").style.transform="rotateY(0)";
+        document.getElementById("div_animate_1").style.transform="rotateY(-180deg)"; 
+        document.getElementById("div_animate_2").style.animationName="cloud";
+        document.getElementById("div_animate_2").style.animationDuration="2s";
+        
+    }
+    
+}
+        </script>
+        
+        
+
+    </head>
+    <body class="dark-skin">
+        <header>
+            <img src="http://www2.byui.edu/imageLibrary/homePage/BYU-IDAHO041118_6655.jpg" >
+            <h3>Donald Nelson - CIT 261 - Brigham Young University Idaho</h3>
+        </header>
+            <nav>
+                
+            </nav>
+        <main>
+            <div class="content">
+                
+                <h2>Go ahead and click on the card to flip it over.</h2>
+                    <div class="clear"></div>
+                    
+                    
+                    
+                <div id="div_card" class="card effect__hover" onclick="flip()">
+                    <div id="div_card_front" class="card__front">
+                        
+                    </div>
+                    <div id="div_card_back" class="card__back">
+                        
+                    </div>
+                </div>
+                
+                    <div class="clear"></div>
+                    
+                <h2>Go ahead and click on the card to flip it over and do an animation.</h2>
+                    <div class="clear"></div>
+                
+                <div id="div_card_2" class="container card" onclick="cardAnimate()">
+                    <div id="div_animate_1" class="card card-back"></div>
+                    <div id="div_animate_2" class="card card-front second-card"></div>
+                    <div id="div_animate_3" class="card card-front first-card"></div>
+                </div>
+                                    
+                    <div class="clear"></div>
+                    
+                <h2>This uses 100% JavaScript manipulation of CSS properties to generate this effect.</h2>
+            </div>
+                
+        </main>
+        <footer>
+            &copy Donald Nelson - BYUI - CIT261
+        </footer>
+        <script>
+            getMenu();
+            cardSetup();
+            </script>
+    </body>
+</html>

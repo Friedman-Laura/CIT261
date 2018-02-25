@@ -1,0 +1,103 @@
+
+@keyframes cloud {
+  1% {
+    opacity: 100;
+  }
+  50% {
+    opacity: 100;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.fff{
+    
+  padding: 0px;
+  margin: 0 0 auto;
+}
+.container {
+  width: 15vw;
+  height: 21vw;
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  float:left;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  height: 21vw;
+  width: 15vw;
+  border-radius: 10px;
+  margin: 0px;
+  box-shadow: 2px 2px 4px grey;
+  position: relative;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s, fill 2s, color 2s;
+  backface-visibility: hidden;
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+}
+
+.card-front {
+  padding: .5em;
+  background-color: white;
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+
+
+.container.effect:hover .card-back {
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+
+.container.effect:hover .card-front {
+  -webkit-transform: rotateY(0);
+  transform: rotateY(0);
+}
+
+.rect {
+  width: 15vw;
+  height: 21vw;
+}
+
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+.card-back{
+    
+  background-image:url("/CIT261/images/card-back.jpg");
+}
+.first-card {
+  z-index: 1;
+  background-image:url("/CIT261/images/king-of-spades.png");
+}
+
+.second-card {
+  z-index: 2;
+  background-image: url("/CIT261/images/jack-of-hearts.png");
+  opacity: 0;
+}
+
+.container.effect:hover .second-card {
+  animation-name: cloud;
+  animation-duration: 2s;
+  fill: black;
+  color: black;
+}
