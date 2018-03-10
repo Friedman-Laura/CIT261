@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Designing, Defining, and Triggering CSS3 Transforms without Custom Libraries">
+        <meta name="author" content="Laura Friedman">
+            
+        <title>Designing, Defining, and Triggering CSS3 Transforms without Custom Libraries</title>
+    
+        <!-- Custom style for this site -->
+        <link href="/CIT261/css/style.css" rel="stylesheet">
+	
+        <!-- Normalize CSS -->
+        <link href="/CIT261/css/normalize.css" rel="stylesheet">
+        
+        <!-- Custom style for this code topic -->
+        <link href="/CIT261/css/css_transforms.css" rel="stylesheet">
+	
+        <!-- Include the JavaScript functions -->
+        <script>
+            //==============================================================================
+            //BEGINNING OF Functions
+            //==============================================================================
+            var x,y,n=0,ny=0,rotINT,rotYINT
+            function rotateDIV()
+            {
+                x=document.getElementById("rotate2D")
+                clearInterval(rotINT)
+                rotINT=setInterval("startRotate()",10)
+            }
+            function rotateYDIV()
+            {
+                y=document.getElementById("rotate3D")
+                clearInterval(rotYINT)
+                rotYINT=setInterval("startYRotate()",10)
+            }
+            function startRotate()
+            {
+                n=n+1
+                x.style.transform="rotate(" + n + "deg)"
+                x.style.webkitTransform="rotate(" + n + "deg)"
+                x.style.OTransform="rotate(" + n + "deg)"
+                x.style.MozTransform="rotate(" + n + "deg)"
+                if (n==180 || n==360)
+                {
+                    clearInterval(rotINT)
+                    if (n==360){n=0}
+                }
+            }
+            function startYRotate()
+            {
+                ny=ny+1
+                y.style.transform="rotateY(" + ny + "deg)"
+                y.style.webkitTransform="rotateY(" + ny + "deg)"
+                y.style.OTransform="rotateY(" + ny + "deg)"
+                y.style.MozTransform="rotateY(" + ny + "deg)"
+                if (ny==180 || ny>=360)
+                {
+                    clearInterval(rotYINT)
+                    if (ny>=360){ny=0}
+                }
+            }
+            //==============================================================================
+            //END OF Functions
+            //==============================================================================
+        </script>
+
+    </head>
+    <body>
+        <header>
+            <h3>Designing, Defining, and Triggering CSS3 Transforms<br>without Custom Libraries</h3>
+            <hr>
+        </header>
+        <nav>
+        </nav>
+        <main>
+            <div class="main_content">
+                <h4>Transform: Rotate</h4>
+                <h5>Mouse over the elements below to view the respective transformation:</h5>
+                <div class="col_left">
+                    <h5>2D Rotation Example</h5>
+                    <div onmouseover="rotateDIV()" id="rotate2D">2D rotate</div>
+                </div>
+                <div class="col_center">
+                    <h5>3D Rotation Example</h5>
+                    <div onmouseover="rotateYDIV()" id="rotate3D">3D rotate</div>
+                </div>
+            </div>
+            <hr>
+            <div class="main_content">
+                <div class="col_left">
+                    <h4>Transform: Translate</h4>
+                    <div id="css3Translate">
+				        <p>Click on the button to move it down and to the right.</p>
+				        <button type="button">CSS Translate Example</button>
+			         </div>
+                </div>
+                <div class="col_center">
+                    <h4>Transform: Scale</h4>
+                    <div id="css3Scale">
+                        <p>Click on the button to change its size.</p>
+                        <button type="button">CSS3 Scale Example</button>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="main_content">
+                <div class="col_left">
+                    <h4>Transform: Skew</h4>
+                    <div id="css3Skew">
+				        <p>The text has been skewed by 10 degrees on both the X axis and Y axis.</p>                        
+                        <h5>This text is Skewed!</h5>
+			         </div>
+                </div>
+            </div>            
+        </main>
+        <footer>
+            <hr>&copy;2018 Laura Friedman | <a href="http://www.redonks.com/CIT261/index.html">CIT 261: JavaScript Mobile Software Development</a> | <a href="http://www.redonks.com">Redonks.com</a> | <a href="https://github.com/Friedman-Laura/CIT261" target="_blank">Github</a> | <a href="#">Team Project (Incomplete)</a>
+        </footer>
+    </body>
+</html>
