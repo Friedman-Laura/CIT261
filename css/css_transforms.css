@@ -1,0 +1,57 @@
+/* CSS Transform Rotate Method */
+#rotate2D,#rotate3D {
+    width:400px;
+    height:300px;
+    color:white;
+    position:relative;
+    font-weight:bold;
+    font-size:48px;
+    padding:10px;
+    float:left;
+    margin-right:50px;
+    border-radius:25px;
+    border:2px solid #000000;
+    background:green;
+    margin:10px;
+}
+
+/* CSS3 Transform Translate Method */
+#css3Translate > button:active {
+	-webKit-transform: translate(20px,40px);
+	-moz-transform: translate(20px,40px);
+	-o-transform: translate(20px,40px);
+	-ms-transform: translate(20px,40px);
+	transform: translate(20px,40px);
+	margin-bottom: 50px;
+}
+
+/* CSS3 Transform Scale Method */
+#css3Scale > button:hover {
+	-webKit-transform: scale(2.0);
+	-moz-transform: scale(2.0);
+	-o-transform: scale(2.0);
+	-ms-transform: scale(2.0);
+	transform: scale(2.0);
+	margin-right: 30px;
+	margin-bottom: 50px;
+}
+
+/* CSS3 Transform Skew Method */
+#css3Skew > h5 {
+	background-color: orange;
+	color: #ffffff;
+	font-size: 3em;
+	font-weight: 500;
+	margin: 70px auto;
+	padding:20px;
+	width: 60%;
+	text-align: center;
+	
+	-webKit-transform: skew(10deg, 10deg);
+	-moz-transform: skew(10deg, 10deg);
+	-o-transform:  skew(10deg, 10deg);
+	-ms-transform: skew(10deg, 10deg);
+	transform: skew(10deg, 10deg);
+
+	margin-bottom: 50px;
+}
