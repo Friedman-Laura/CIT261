@@ -113,13 +113,17 @@
             // Use to remove the first child element from another DOM element
             function removeFirstStudent(){
                 var divStudents = document.getElementById("div_students");
-                divStudents.removeChild(divStudents.childNodes[0]);
+                if (divStudents.childNodes.length > 0) {
+                    divStudents.removeChild(divStudents.childNodes[0]);
+                }
             }
 
             // Use to remove the last child element from another DOM element
             function removeLastStudent(){
                 var divStudents = document.getElementById("div_students");
-                divStudents.removeChild(divStudents.childNodes[divStudents.childNodes.length-1]);
+                if (divStudents.childNodes.length > 0) {
+                    divStudents.removeChild(divStudents.childNodes[divStudents.childNodes.length-1]);
+                }                
             }
             //==============================================================================
             //END OF Functions
