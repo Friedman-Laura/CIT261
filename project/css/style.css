@@ -2,10 +2,6 @@
  * STYLING FOR HOME PAGE SLIDER                                              *
  *****************************************************************************/
 
-/* Reset
-*{margin:0;padding:50px 0 0;}
-*/
-
 /* Slider */
 #slider{
   width:100%;
@@ -127,7 +123,7 @@ img{
   width:100%;
   height:100%;
   border-radius:50%;
-  background:#f39c12;
+  background: deeppink;
   position:relative;
   -webkit-animation:on 30s infinite;
   -moz-animation:on 30s infinite;
@@ -412,7 +408,7 @@ header {
     margin: 0;
     display: block;
 }
-footer, main,menu, nav, section {
+footer, main, menu, nav, section {
     display:block;
 }
 
@@ -425,7 +421,7 @@ footer {
     max-width:100% !important;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 50px;
+    margin-top: 20px;
     padding: 25px;
     background-color: #484848;
     color: white;
@@ -536,7 +532,7 @@ blockquote {
 
 .wrapper {
   max-width: 1400px;
-  margin: 0 auto 50px;
+  margin: 0 auto 25px;
   padding: 5% 1%;
   overflow: auto;
 }
@@ -564,7 +560,6 @@ HEADER AND MENUS
   padding: 0;
   list-style: none;
   overflow: hidden;
-  background-color: #484848;
 }
 
 .header li a {
@@ -733,7 +728,7 @@ END OF HEADER AND MENUS
 ***********************/
 
 /***************************
-HERO IMAGE
+IMAGE SLIDER SECTION
 ****************************/
 #banner {
   padding: 50px 0 0;
@@ -752,21 +747,28 @@ HERO IMAGE
 }
 
 /**********************
-END OF HERO IMAGE
+END OF IMAGE SLIDER SECTION
 ***********************/
 /**********************
-QUOTE
+QUOTE & SERVICES
 ***********************/
 #quote, #servicesheader, #serviceslist {
-  margin: 41px 0 46px;
+  margin: 20px 0 20px;
   text-align: center;
 }
 
-#servicesheader p, #serviceslist h6 {
+#servicesheader p {
   margin: 0;
   font-size: 1.15em;
   font-weight: 500;
   color: #999;
+}
+
+#serviceslist h6 {
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #484848;    
 }
 
 #serviceslist h5 {
@@ -780,13 +782,6 @@ QUOTE
   margin: 10px 0 10px;
   text-align: center;
 }
-
-#serviceslist img {
-    margin: 10px 0 10px;
-    border: 1px solid #484848;
-    border-radius: 50%;
-    max-width: 60%;
-} 
 
 @media only screen and (min-width: 768px) {
   #quote, #servicesheader, #serviceslist {
@@ -811,8 +806,61 @@ QUOTE
 }
 
 /**********************
-END OF QUOTE
+END OF QUOTE & SERVICES
 ***********************/
+
+/**********************
+SERVICES IMAGES
+***********************/
+
+.services-image {
+    display: block;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;   
+}
+
+.services-image img {
+    margin: 10px 0 10px;
+    border: 1px solid #484848;
+    border-radius: 50%;        
+	transition: all 1s ease-in-out 0s;
+	-moz-transition: all 1s ease-in-out 0s;
+	-webkit-transition: all 1s ease-in-out 0s;
+	-o-transition: all 1s ease-in-out 0s;
+}
+
+.services-image .services-image-caption {
+    transition: .75s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 20px;
+    color: deeppink;
+}
+
+.services-image:hover .services-image-caption {
+    opacity: 1;
+}
+
+.services-image:hover img {
+    opacity: 0.25;
+    background-color: deeppink;    
+	transform: scale(.9) rotateY(180deg);
+	-moz-transform: scale(.9) rotateY(180deg);
+	-webkit-transform: scale(.9) rotateY(180deg);
+	-o-transform: scale(.9) rotateY(180deg);
+}
+
+/**********************
+END OF SERVICES IMAGES
+***********************/
+
+
 /**********************
 MAIN CONTENT
 ***********************/
@@ -871,18 +919,79 @@ input[type=submit] {
     float: right;
 }
 
-input[type=submit]:hover {
-    background-color: pink;
+.clearbutton {
+    background-color: hotpink;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: left;
 }
 
-.container {
-    border-radius: 5px;
-    background-color: #fff4ff;
-    padding: 20px;
+input[type=submit]:hover, .clearbutton:hover {
+    background-color: pink;
 }
 
 .form-container {
     border-radius: 10px;
+    background-color: #fff4ff;
+    padding: 20px;
+}
+
+fieldset, form, label, legend {
+	margin: 0px;
+	padding: 0px;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+legend {
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+fieldset {
+    margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the columns stack on top of each other instead of next to each other and make the buttons full width */
+@media screen and (max-width: 600px) {
+    .col-25, .col-75, .col-50, .col-30, input[type=submit], .clearbutton {
+        width: 100%;
+        margin-top: 0;
+    }
+    
+    /* Make the Contact Form thank you popup screen wider */
+    .modalDialog > div {
+        width: 80%;
+    }
+}
+/**********************
+END OF FORMS
+***********************/
+
+/**********************
+MAP
+***********************/
+
+#map {
+    height: 500px;
+    width: 100%;
+    margin: 10px;
+    padding: 20px;
+}
+/**********************
+END OF MAP
+***********************/
+
+/**********************
+CONTENT CONTAINERS
+***********************/
+
+.container {
+    border-radius: 5px;
     background-color: #fff4ff;
     padding: 20px;
 }
@@ -932,52 +1041,6 @@ input[type=submit]:hover {
     clear: both;
 }
 
-fieldset, form, label, legend {
-	margin: 0px;
-	padding: 0px;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-
-legend {
-    font-size: 1.5em;
-    margin-top: 20px;
-}
-fieldset {
-    margin-top: 20px;
-}
-
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-    .col-25, .col-75, .col-50, .col-30, input[type=submit] {
-        width: 100%;
-        margin-top: 0;
-    }
-}
-/**********************
-END OF FORMS
-***********************/
-
-/**********************
-MAP
-***********************/
-
-#map {
-    height: 500px;
-    width: 100%;
-    margin: 10px;
-    padding: 20px;
-}
-/**********************
-END OF MAP
-***********************/
-
-/**********************
-CONTENT CONTAINERS
-***********************/
-
 .container:after,.container:before,.panel:after,.panel:before,.row:after,.row:before,.row-padding:after,.row-padding:before,
 .cell-row:before,.cell-row:after,.clear:after,.clear:before,.bar:before,.bar:after {
     content:"";
@@ -989,13 +1052,21 @@ CONTENT CONTAINERS
     padding:0 8px;
 }
 
+.servicesSection{
+    text-align: center;
+}
+
+.servicesSection > p {
+    text-align: center;
+}
+
 /**********************
 END CONTENT CONTAINERS
 ***********************/
 
-/**********************
+/*********************************
 CONTACT CONFIRMATION POPUP
-***********************/
+**********************************/
 
 .modalDialog {
     position: fixed;
@@ -1019,7 +1090,7 @@ CONTACT CONFIRMATION POPUP
 }
 
 .modalDialog > div {
-    width: 80%;
+    width: 50%;
     position: relative;
     margin: 10% auto;
     padding: 5px 20px 13px 20px;
@@ -1051,14 +1122,6 @@ CONTACT CONFIRMATION POPUP
 
 .closeModal:hover { background: hotpink; }
 
-/**********************
+/*********************************
 END CONTACT CONFIRMATION POPUP
-***********************/
-
-.servicesSection{
-    text-align: center;
-}
-
-.servicesSection > p {
-    text-align: center;
-}
+**********************************/

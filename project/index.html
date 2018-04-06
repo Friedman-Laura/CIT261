@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="robots" content="noindex">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="This page is for Laura Friedman's CIT261 Project for BYU-Idaho.">
+        <meta name="description" content="This page is for Laura Friedman's CIT261 Personal Project for BYU-Idaho.">
         <meta name="author" content="Laura Friedman">
         
         <!-- Display favicon in browser tab -->
@@ -25,9 +25,9 @@
         
         <!-- Font Awesome icons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        
+                        
         <script  type="text/javascript">
-            // When the user scrolls down 20px from the top of the document, show the button
+            // When the user scrolls down 20px from the top of the document, show the Top button
             window.onscroll = function() {scrollFunction()};
 
             function scrollFunction() {
@@ -46,7 +46,7 @@
         </script>    
                 
     </head>
-    <body onload="window.scrollTo(0,0);">         
+    <body>         
         <!-- DIDPLAY THE HEADER AND NAVIGATION MENU -->
         <header class="header">
             <a href="#" class="logo"><img src="images/MGlogo2-sm.png" height="70" width="168" alt="Mighty Geeks logo"></a>
@@ -131,9 +131,11 @@
 
         <!-- DISPLAY THE SERVICES SECTION -->
         <section id="services" class="wrapper">
-
+            
+            <!-- The header for the Services Section is dynamically displayed from a JSON File via js/services.js -->
             <div id="servicesheader" class="servicesSection"></div>
           
+            <!-- The list of Services is dynamically displayed from a JSON file via js/services.js -->
             <div id="serviceslist" class="servicesSection"></div>
 
         </section>
@@ -148,50 +150,53 @@
             <div class="row">
                 <div class="col-50">
 
+                    <!-- This Contact Form is actually sent to my email address -->
                     <section class="form-container">                        
-                        <form action="FormToEmail.php" method="post" enctype="multipart/form-data" name="attend" id="contactform" onsubmit="showFormFields()">
+                        <form action="FormToEmail.php" method="post" enctype="multipart/form-data" name="attend" id="contactForm">
 
                             <h4>Personal Information</h4>
                             <fieldset>
-                                <label><span>Full Name:</span><input name="name" type="text" placeholder="John Doe" pattern="[a-zA-Z -._]{4,99}" required autofocus title="Please provide your full name"></label>
-                                <label><span>Address:</span><input name="address" type="text" placeholder="123 South Main St, Pleasantville, IN 44444" pattern="[a-zA-Z0-9., ]{3,99}" required title="Please provide your complete mailing address"></label>
-                                <label><span>Email:</span><input name="email" type="email" placeholder="johndoe@gmail.com" required title="Please provide a valid email address"></label>
-                                <label><span>Phone:</span><input name="phone" type="tel" placeholder="123-456-7890" pattern="[0-9-]{10,20}" required title="Please provide a valid phone number"></label>
+                                <label for="name"><span>Full Name:</span><input name="name" type="text" placeholder="John Doe" pattern="[a-zA-Z -._]{4,99}" required autofocus title="Please provide your full name"></label>
+                                <label><span>Full Address:</span><input name="address" type="text" placeholder="123 South Main St, Pleasantville, IN 44444" pattern="[a-zA-Z0-9., ]{3,99}" required title="Please provide your complete mailing address"></label>
+                                <label for="email"><span>Email:</span><input name="email" type="email" placeholder="johndoe@gmail.com" required title="Please provide a valid email address"></label>
+                                <label for="phone"><span>Phone:</span><input name="phone" type="tel" placeholder="123-456-7890" pattern="[0-9-]{10,20}" required title="Please provide a valid phone number"></label>
                             </fieldset>
                             <br>
                             <h4>Business Information</h4>
                             <fieldset>
-                                <label><span>Company:</span><input name="company" type="text" placeholder="ABC Company" pattern="[a-zA-Z -._]{4,99}" required title="Please provide the name of your company, if applicable"></label>
-                                <label><span>Number of Employees:</span><input name="employees" type="number" ></label>
-                                <label><span>Web Site:</span><input name="webURL" type="url" placeholder="http://www.abccompany.com" ></label>
-<!--
-                                <label><span>Favorite Color:</span><input name="color" type="color" ></label>
-                                <label><span>Credit Card:</span><input name="card" type="number" autocomplete="off" ></label>
--->
+                                <label for="company"><span>Company:</span><input name="company" type="text" placeholder="ABC Company" pattern="[a-zA-Z -._]{4,99}" required title="Please provide the name of your company, if applicable"></label>
+                                <label for="employees"><span>Number of Employees:</span><input name="employees" type="number" ></label>
+                                <label for="webURL"><span>Web Site:</span><input name="webURL" type="url" placeholder="http://www.abccompany.com" ></label>
                             </fieldset>
 
                             <h4>Other Information</h4>
                             <fieldset>
-                                <label>
+                                <label for="svcs">
                                     <span>Services For:</span>
-                                    <input type="text" name="services" list="servicesfor">
+                                    <input type="text" name="svcs" list="servicesfor">
                                     <datalist id="servicesfor">
                                         <option value="Business"> </option>
                                         <option value="Residential"> </option>
                                     </datalist>
                                 </label>
                                 <label><span>Preferred Date To Contact You:</span><input name="date" type="date" ></label>                                
-                                <label><span>Message:</span><textarea id="message" name="message" placeholder="Let us know what you need.." rows="15" cols="80"></textarea>
+                                <label for="message"><span>Message:</span><textarea id="message" name="message" placeholder="Let us know what you need.." rows="15" cols="80"></textarea>
                                 </label>                
                             </fieldset>
+                            
+                            <input type="button" onclick="clearContactForm()" class="clearbutton" value="Reset Contact Form">
+                            
                             <input type="submit" value="Submit" class="submitbutton">
 
                             <input type="hidden" value="CIT261 Contact Form" name="subject" >
+                            
+                            <!-- When the php file returns, this field redirects the code to an anchor further down that pops up a Thank You screen via CSS -->
                             <input name="redirect" type="hidden" value="index.html#thankYou">
                         </form>
                     </section>
                 </div>
                 <div class="col-50">
+                    <!-- Display the company information and a map of our location. -->
                     <section class="column-container">
                         <p><i class="fa fa-phone fa-fw"></i> <b>Phone:</b> 817-913-5050</p>
                         <p><i class="fa fa-envelope fa-fw"></i> <b>Email:</b> info@mightygeeks.net</p>
@@ -221,36 +226,31 @@
             </div>
         </section>
         
-        <div id="thankYou" class="modalDialog">
-            <div>
-                <a href="#close" title="Close" class="closeModal">X</a>
-                <h4>Thank You for Contacting Us!</h4>
-                <p>We appreciate your interest in our services.</p>
-                <p>We will review the information and respond within 1 business day.</p>
-<!--
-                <p id="formFields"></p>
--->
+        <!-- DISPLAY THE THANKS FOR CONTACTING US SECTION -->
+        <!-- This section is hidden until the Contact Form is submitted -->
+        <section class ="wrapper">
+            <div id="thankYou" class="modalDialog">
+                <div>
+                    <a href="#close" title="Close" class="closeModal">X</a>
+                    <h4>Thank You for Contacting Us!</h4>
+                    <p>We appreciate your interest in our services.</p>
+                    <p>We will review the information and respond within 1 business day.</p>
+                </div>
             </div>
-        </div>        
+        </section>
         
+        <!-- DISPLAY THE FOOTER SECTION -->
         <footer>
             &copy; 2018 | Laura Friedman | <a href="http://www.redonks.com/CIT261/">CIT 261: JavaScript Mobile Software Development</a> | <a href="https://github.com/Friedman-Laura/CIT261" target="_blank">Github</a> | <a href="#">Personal Project (Incomplete)</a> | <a href="http://www.redonks.com">Redonks.com</a><br>
             Form Processed by Form To Email Code provided by <a href="http://FormToEmail.com" target="_blank">FormToEmail.com</a>
             <button onclick="topFunction()" id="topOfPageBtn" title="Go to top">Top</button>
         </footer>
-    <script type="text/javascript" src="js/services.js"></script>   
- <!--
-    <script type="text/javascript">
-       function showFormFields() {
-        var f = document.getElementById("contactform");
-        var fieldTxt = "";
-        var i;
-        for (i = 0; i < f.length; i++) {
-            fieldTxt = fieldTxt + f.elements[i].value + "<br>";
-        }
-        document.getElementById("formFields").innerHTML = fieldTxt;   
-    }        
-    </script>
--->
+        
+    <!-- Load the JavaScript code for the Services Section -->
+    <script type="text/javascript" src="js/services.js"></script>
+        
+    <!-- Load the JavaScript code to store and retrieve the Conact Form to LocalStorage -->        
+    <script type="text/javascript" src="js/form.js"></script>                
+        
     </body>
 </html>

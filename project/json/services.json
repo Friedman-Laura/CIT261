@@ -5,55 +5,55 @@
   "services" : [
     {
       "name" : "Computer Services",
-      "svcImage" : "images/help-button.jpg",
+      "svcImage" : "images/computer-help.jpg",
       "subTitle" : "Get It Working Like New",
       "description" : "Does it seem like your computer needs a major overhaul? Let us remove malicious software, optimize your computer, update all your existing software, install all Windows or Mac updates, and more."
     },
     {
       "name" : "Small Business & Residential",
-      "svcImage" : "images/home_and_business_sm1.png",
+      "svcImage" : "images/home_and_business.jpg",
       "subTitle" : "Fast & Affordable",
       "description" : "We serve residential, home-based business and small business customers. If you need service that’s fast and affordable, call Mighty Geeks."
     },
     {
       "name" : "Hard Drives",
-      "svcImage" : "images/mighty_geeks_hard_drive1.png",
+      "svcImage" : "images/hard_drive.jpg",
       "subTitle" : "Data Recovery & Upgrades",
       "description" : "Hard drive crash? We can recover those lost vacation pictures or critical business documents. Running out of disk space? We also upgrade hard drives so you won’t run out of space as your life or business grows."
     },
     {
       "name" : "Virus Removal",
-      "svcImage" : "images/mighty_geeks_virus_removal11.png",
+      "svcImage" : "images/virus_removal.jpg",
       "subTitle" : "We Guarantee Our Service",
       "description" : "Computer slow? Trouble connecting to the internet? Online email or account been hacked? Using “free” security software? You have malicious software! If you think you won’t get it, think again!"
     },
     {
       "name" : "PC & Mac",
-      "svcImage" : "images/pc_and_mac_sm1.png",
+      "svcImage" : "images/pc_and_mac.jpg",
       "subTitle" : "We Service Both",
       "description" : "It doesn’t matter which technology you choose for your home or small business. From setting it up to service to training, Mighty Geeks can help!"
     },
     {
       "name" : "Maintenance Contracts",
-      "svcImage" : "images/maintenance_contract_sm1.png",
+      "svcImage" : "images/maintenance_contract.jpg",
       "subTitle" : "Quarterly, Semi-Annual or Yearly",
       "description" : "Tired of not knowing what your IT costs are? Our maintenance contracts include monthly service and discounted rates on additional or emergency services."
     },
     {
       "name" : "Assessments & Diagnostics",
-      "svcImage" : "images/computer-diagnostics-sm1.png",
+      "svcImage" : "images/computer-diagnostics.jpg",
       "subTitle" : "What You Have & What You Need",
       "description" : "We can review your current technology and let you know if it meets your needs. We can also leave you with a detailed report that you can implement with us or on your own."
     },
     {
       "name" : "Complex Environments",
-      "svcImage" : "images/servers_and_databases.png",
+      "svcImage" : "images/servers_and_databases.jpg",
       "subTitle" : "Servers, Database Systems & More",
       "description" : "We can handle servers, database software and more. Supporting the technology needs of your business or high-end residence is top priority for Mighty Geeks."
     },
     {
       "name" : "Remote Support",
-      "svcImage" : "images/remote_support_cloud1.png",
+      "svcImage" : "images/remote_support_cloud.jpg",
       "subTitle" : "Available Nationwide",
       "description" : "We utilize a protected cloud connection to support customers across the United States. It doesn’t matter where you are, call us today to find out just how easy it is!"
     }
